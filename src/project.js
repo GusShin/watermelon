@@ -618,7 +618,6 @@ window.__require = function e(t, n, i) {
                 play: function () {
                     console.log(1);
                     var e = this;
-                    adBreak({ type: "next", name: "restart-game", beforeBreak: function () { e.enableButtons() }, afterBreak: function () { e.enableButtons() } })
                 },
                 enableButtons: function () { },
                 start: function () {
