@@ -618,6 +618,7 @@ window.__require = function e(t, n, i) {
                 play: function () {
                     console.log(1);
                     var e = this;
+                    //adBreak({ type: "next", name: "restart-game", beforeBreak: function () { e.enableButtons() }, afterBreak: function () { e.enableButtons() } })
                 },
                 enableButtons: function () { },
                 start: function () {
@@ -1721,7 +1722,8 @@ window.__require = function e(t, n, i) {
                 return n
             }, start: function () { }
         }), cc._RF.pop()
-    }, { GameConfig: "GameConfig", GameUiTools: "GameUiTools", MainManage: "MainManage" }], linkHttpIconJs: [function (e, t, n) {
+    }, { GameConfig: "GameConfig", GameUiTools: "GameUiTools", MainManage: "MainManage" }],
+    linkHttpIconJs: [function (e, t, n) {
         "use strict"; cc._RF.push(t, "95474fr0oNDP7SAidILF03q", "linkHttpIconJs"); var i = e("MainManage"), o = e("GameConfig");
         cc.Class({
             extends: cc.Component, properties: { iconSpr: cc.Node, iconSpr1: cc.Node }, onLoad: function () {
