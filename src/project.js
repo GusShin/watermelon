@@ -841,7 +841,7 @@ window.__require = function e(t, n, i) {
         cc._RF.push(t, "197e1hfNnxIcJx73V3VhUxY", "HttpManagerJs");
         var r = e("GameConfig")
           , a = (o(i = {
-            URL: "http://www.wesane.com/h5service.php/Interface/services",
+            // URL: "http://www.wesane.com/h5service.php/Interface/services",
             cacheList: null,
             isBusy: null,
             req: null,
@@ -1264,8 +1264,8 @@ window.__require = function e(t, n, i) {
                 this.gameEndName2 = o.gameT3,
                 this.gameEndUrl1 = o.gameUrl1,
                 this.gameEndUrl2 = o.gameUrl2,
-                this.langugeType = this.curType,
-                a.goToCover(this.adShowBefore, this.adShowAfter, e, t, n)
+                this.langugeType = this.curType
+                // a.goToCover(this.adShowBefore, this.adShowAfter, e, t, n)
             },
             getHttpGameId: function() {
                 var e = window.location.href
@@ -1283,13 +1283,13 @@ window.__require = function e(t, n, i) {
                 this.gameHttpId = r,
                 cc.log("gameId", r);
                 e.substring(e.lastIndexOf("//") + 4, e.lastIndexOf("com") + 3);
-                this.moreGameUrl = "http://m.wesane.com/"
+                this.moreGameUrl = "https://live.bilibili.com/1944820"
             },
             gameOverShowText: function(e, t) {
-                this.ajaxLoad("http://www.wesane.com/admin.php/Gamescore/saveGamescore", "gameScore=" + e + "&gameId=" + this.gameHttpId + "&gameType=" + t, this.scoreResult)
+                // this.ajaxLoad("http://www.wesane.com/admin.php/Gamescore/saveGamescore", "gameScore=" + e + "&gameId=" + this.gameHttpId + "&gameType=" + t, this.scoreResult)
             },
             gamePV_load: function() {
-                this.ajaxLoad("http://www.wesane.com/admin.php/Activityshow/gamelogo", "gameID=" + this.gameHttpId, this.ajaxOnLogoResult)
+                // this.ajaxLoad("http://www.wesane.com/admin.php/Activityshow/gamelogo", "gameID=" + this.gameHttpId, this.ajaxOnLogoResult)
             },
             ajaxOnLogoResult: function() {},
             ajaxLoad: function(e, t, n) {
