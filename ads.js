@@ -146,7 +146,6 @@ function onContentPauseRequested() {
     // display ad timer countdown, disable seeking, etc.)
     videoContent.removeEventListener('ended', contentEndedListener);
     videoContent.pause();
-
 }
 
 //广告结束的时候调用的函数
@@ -196,7 +195,6 @@ function onContentResumeRequested() {
 
     // videoContent.addEventListener('ended', contentEndedListener);
     // videoContent.play();
-
 }
 
 function noAdGoToScene() {
