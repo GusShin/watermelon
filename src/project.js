@@ -1264,8 +1264,8 @@ window.__require = function e(t, n, i) {
                 this.gameEndName2 = o.gameT3,
                 this.gameEndUrl1 = o.gameUrl1,
                 this.gameEndUrl2 = o.gameUrl2,
-                this.langugeType = this.curType
-                // a.goToCover(this.adShowBefore, this.adShowAfter, e, t, n)
+                this.langugeType = this.curType,
+                a.goToCover(this.adShowBefore, this.adShowAfter, e, t, n)
             },
             getHttpGameId: function() {
                 var e = window.location.href
