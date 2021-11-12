@@ -6,11 +6,11 @@ if (false) {
 var loadingBool = true;
 var loadingNum = 0;
 window.boot = function () {
-	
+
     var settings = window._CCSettings;
     window._CCSettings = undefined;
 
-    if ( !settings.debug ) {
+    if (!settings.debug) {
         var uuids = settings.uuids;
 
         var rawAssets = settings.rawAssets;
@@ -62,54 +62,30 @@ window.boot = function () {
         }
     }
 
-    function setLoadingDisplay () {
+    function setLoadingDisplay() {
         // Loading splash scene
         var splash = document.getElementById('splash');
-        // var progressBar = splash.querySelector('.progress-bar span');
-		
-	
-		
+
         cc.loader.onProgress = function (completedCount, totalCount, item) {
-            
+
             loadData.completedCount = completedCount;
             loadData.totalCount = totalCount;
-			
-			if(loadingBool){
+
+			if (loadingBool) {
 				var loadintT = document.getElementById("loadingText")
 			}
 			var percent = 100 * completedCount / totalCount;
-			if(loadingBool && loadingNum >= 1 && totalCount > 1){
+			if (loadingBool && loadingNum >= 1 && totalCount > 1) {
 				if(percent.toFixed(0) >= 100){
                     loadintT.innerHTML = 'loading......100' + '%';
-                    setTimeout(function(){
+                    setTimeout(function() {
                         loadingBool = false;
                         loadintT.remove();
-                    },0.1 * 1000);
+                    }, 0.1 * 1000);
                     clearInterval(timer); 
 				}
 			}
-            loadingNum ++;
-			// if(loadingBool){
-			// 	var loadintT = document.getElementById("loadingText")
-			// }
-			// var percent = 100 * completedCount / totalCount;
-			// if(loadingBool && loadingNum >= 1){
-			// 	   console.log("dskpi",loadingNum);
-			// 	   loadintT.innerHTML = 'loading......' + parseInt(percent)  + '%';
-			// 	   if(percent.toFixed(0) >= 100){
-					   
-			// 		   loadingBool = false;
-			// 		   loadintT.remove();
-			// 	   }
-			// }
-			// loadingNum ++;
-			
-            // var percent = 100 * completedCount / totalCount;
-            // if (progressBar) {
-                // progressBar.style.width = percent.toFixed(2) + '%';
-            // }
-			
-			
+            loadingNum++;
         };
         splash.style.display = 'block';
         // progressBar.style.width = '0%';
@@ -120,14 +96,13 @@ window.boot = function () {
     }
 
     var onStart = function () {
-		
+
         cc.loader.downloader._subpackages = settings.subpackages;
 
         cc.view.enableRetina(true);
         cc.view.resizeWithBrowserSize(true);
 
         if (!false && !false) {
-			
             if (cc.sys.isBrowser) {
                 setLoadingDisplay();
             }
@@ -139,12 +114,7 @@ window.boot = function () {
                 else if (settings.orientation === 'portrait') {
                     cc.view.setOrientation(cc.macro.ORIENTATION_PORTRAIT);
                 }
-                // cc.view.enableAutoFullScreen([
-                //     cc.sys.BROWSER_TYPE_BAIDU,
-                //     cc.sys.BROWSER_TYPE_WECHAT,
-                //     cc.sys.BROWSER_TYPE_MOBILE_QQ,
-                //     cc.sys.BROWSER_TYPE_MIUI,
-                // ].indexOf(cc.sys.browserType) < 0);
+
                 cc.view.enableAutoFullScreen(false);
             }
 
@@ -156,45 +126,20 @@ window.boot = function () {
             }
         }
 
-        // function loadScene(launchScene) {
-            // cc.director.loadScene(launchScene, null,
-                // function () {
-                    // if (cc.sys.isBrowser) {
-                        // // show canvas
-                        // var canvas = document.getElementById('GameCanvas');
-                        // canvas.style.visibility = '';
-                        // var div = document.getElementById('GameDiv');
-                        // if (div) {
-                            // div.style.backgroundImage = '';
-                        // }
-                    // }
-                    // cc.loader.onProgress = null;
-                    // console.log('Success to load scene: ' + launchScene);
-                // }
-            // );
-
-        // }
-
         var launchScene = settings.launchScene;
 
         // load scene
         // loadScene(launchScene);
-		
-		 var canvas;
+
+		var canvas;
 
         if (cc.sys.isBrowser) {
             canvas = document.getElementById('GameCanvas');
         }
 		 var launchScene = settings.launchScene;
-         console.log("landscape,",launchScene);
+         console.log("landscape,", launchScene);
          var MainManger = __require("MainManage");
-         MainManger.init(launchScene,cc.sys.isBrowser,canvas.style.visibility);
-		
-		
-		
-		
-		
-
+         MainManger.init(launchScene, cc.sys.isBrowser, canvas.style.visibility);
     };
 
     // jsList
@@ -215,7 +160,7 @@ window.boot = function () {
             jsList = [bundledScript];
         }
     }
-    
+
     var option = {
         id: 'GameCanvas',
         scenes: settings.scenes,
@@ -260,7 +205,7 @@ if (false) {
     qqPlayDownloader.REMOTE_SERVER_ROOT = "";
     var prevPipe = cc.loader.md5Pipe || cc.loader.assetLoader;
     cc.loader.insertPipeAfter(prevPipe, qqPlayDownloader);
-    
+
     window.boot();
 }
 else if (window.jsb) {
