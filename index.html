@@ -7,8 +7,7 @@
     <title>小游戏：水果大王</title>
 
     <!--http://www.html5rocks.com/en/mobile/mobifying/-->
-    <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1" />
 
     <!--https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html-->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -38,7 +37,8 @@
     <!--<link rel="apple-touch-icon" href=".png" />-->
     <!--<link rel="apple-touch-icon-precomposed" href=".png" />-->
 
-    <link rel="stylesheet" type="text/css" href="style-mobile.css" />
+    <link rel="stylesheet" type="text/css" href="style-mobile.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
     <style>
         .cocosVideo:-moz-full-screen {
@@ -89,11 +89,37 @@
         var adEndComplete = false;
         var resEndComplete = false;
 
-        judgeLanTitle();
+        function noAdGoToScene() {
+            var GameConfig = __require("GameConfig");
+            console.log("IndexMainMangerMaing", GameConfig.launchScene, GameConfig.Bros, GameConfig.caS);
+
+            var launchScene = GameConfig.launchScene;
+            var Bros = GameConfig.Bros;
+            var caS = GameConfig.caS;
+            cc.director.loadScene(launchScene, null,
+                function () {
+                    adCompleteFlag = false;
+                    if (Bros) {
+                        // show canvas
+                        var canvas = document.getElementById('GameCanvas');
+                        canvas.style.visibility = '';
+                        var div = document.getElementById('GameDiv');
+                        if (div) {
+                            div.style.backgroundImage = '';
+                        }
+                    }
+                    cc.loader.onProgress = null;
+                    console.log('Success to load scene1Main: ' + launchScene);
+                }
+            );
+        }
+
+        function adBreak(o) {
+            // adsbygoogle.push(o);
+        }
+
         function judgeLanTitle() {
-
             // console.log("window.navigator.language",window.navigator.language);
-
             if (window.navigator.language == "zh-CN" || window.navigator.language == "zh-cn") {
                 document.title = "小游戏：水果大王";
             } else if (window.navigator.language == "zh-TW") {
@@ -110,6 +136,8 @@
                 document.title = "Mini game: Fruit King";
             }
         }
+        
+        judgeLanTitle();
 
         var loadintT = document.getElementById("loadingText");
         var loadintGif = document.getElementById("loadingImg")
@@ -190,17 +218,10 @@
                 tempSeconds = percent;
             }
         }
-
-
     </script>
 
     <script src="src/settings.js" charset="utf-8"></script>
     <script src="main.js" charset="utf-8"></script>
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>window.adsbygoogle = window.adsbygoogle || [];
-            const adBreak=function(o){adsbygoogle.push(o);}
-    </script>
-
 
     <script type="text/javascript">
         (function () {
