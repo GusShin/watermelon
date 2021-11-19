@@ -71,20 +71,20 @@ window.boot = function () {
             loadData.completedCount = completedCount;
             loadData.totalCount = totalCount;
 
-			if (loadingBool) {
-				var loadintT = document.getElementById("loadingText")
-			}
-			var percent = 100 * completedCount / totalCount;
-			if (loadingBool && loadingNum >= 1 && totalCount > 1) {
-				if(percent.toFixed(0) >= 100){
+            if (loadingBool) {
+                var loadintT = document.getElementById("loadingText")
+            }
+            var percent = 100 * completedCount / totalCount;
+            if (loadingBool && loadingNum >= 1 && totalCount > 1) {
+                if(percent.toFixed(0) >= 100){
                     loadintT.innerHTML = 'loading......100' + '%';
                     setTimeout(function() {
                         loadingBool = false;
                         loadintT.remove();
                     }, 0.1 * 1000);
                     clearInterval(timer); 
-				}
-			}
+                }
+            }
             loadingNum++;
         };
         splash.style.display = 'block';
@@ -131,12 +131,12 @@ window.boot = function () {
         // load scene
         // loadScene(launchScene);
 
-		var canvas;
+        var canvas;
 
         if (cc.sys.isBrowser) {
             canvas = document.getElementById('GameCanvas');
         }
-		 var launchScene = settings.launchScene;
+         var launchScene = settings.launchScene;
          console.log("landscape,", launchScene);
          var MainManger = __require("MainManage");
          MainManger.init(launchScene, cc.sys.isBrowser, canvas.style.visibility);
